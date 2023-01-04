@@ -5,7 +5,7 @@ function App() {
   const [error, setError] = useState([]);
 
   function checkObject(data) {
-    let errors = []
+    let errors = [];
     if (!Object.hasOwn(data[0], "Savol")) {
       errors.push("Savol qismi yo'q");
     }
@@ -47,12 +47,11 @@ function App() {
       }
     }
 
-    if(errors?.length) {
-      setError(errors)
+    if (errors?.length) {
+      setError(errors);
     } else {
       download("test", objToString(data));
     }
-
   }
 
   function objToString(data) {
@@ -133,13 +132,22 @@ function App() {
         </div>
         <input
           type="file"
+          onClick={(e) => {
+            e.target.value = null;
+          }}
           onChange={loadCertificates}
           className="w-full h-full opacity-0 absolute top-0 left-0 cursor-pointer"
         />
       </div>
-      <ul className={`${error?.length === 0 && 'hidden'} w-[500px] border-[2px] border-slate-800 rounded-md mt-[20px] p-[15px]`}>
+      <ul
+        className={`${
+          error?.length === 0 && "hidden"
+        } w-[500px] border-[2px] border-slate-800 rounded-md mt-[20px] p-[15px]`}
+      >
         {error?.map((e, i) => (
-          <li key={i} className="text-red-600 underline">{e}</li>
+          <li key={i} className="text-red-600 underline">
+            {e}
+          </li>
         ))}
       </ul>
     </div>
