@@ -51,6 +51,7 @@ function App() {
       setError(errors);
     } else {
       download("test", objToString(data));
+      setError([]);
     }
   }
 
