@@ -62,7 +62,7 @@ function App() {
         res +
         Object.entries(obj).reduce((str, [p, val]) => {
           if (p.trim() === "Savol") {
-            return `${val.trim()}?\n`;
+            return `${val.trim()}\n`;
           } else if (p.trim() === "Javob") {
             return `${str}ANSWER: ${String(val).trim().toUpperCase()}\n`;
           } else return `${str}${p.trim()}. ${String(val).trim()}\n`;
